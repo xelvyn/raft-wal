@@ -1,0 +1,27 @@
+[package]
+name = "raft-wal"
+version = "0.1.0"
+authors = ["Alexey Kotvitskiy"]
+edition = "2024"
+description = "Write-Ahed Log(Wal) for Raft"
+
+[dependencies]
+libc = "0.2.174"
+raft = { version = "0.7.0", features = ["prost-codec", "default-logger"], default-features = false }
+prost = "0.11.9"
+bytes = "1.10.1"
+crc32fast = "1.4.2"
+lazy_static = "1.5.0"
+prometheus = "0.14.0"
+serde = { version = "1.0.219", features = ["derive"] }
+tempfile = "3.20.0"
+thiserror = "2.0.12"
+
+[dev-dependencies]
+rand = "0.9.1"
+tracking-allocator = "0.4.0"
+criterion = "0.6.0"
+
+[[bench]]
+name = "wal"
+harness = false
